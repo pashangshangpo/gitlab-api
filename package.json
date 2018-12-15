@@ -1,8 +1,8 @@
 {
-  "name": "library",
+  "name": "gitlab-api",
   "version": "0.1.0",
-  "main": "dist/library.cjs.js",
-  "module": "dist/library.esm.js",
+  "main": "dist/gitlab-api.cjs.js",
+  "module": "dist/gitlab-api.esm.js",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",

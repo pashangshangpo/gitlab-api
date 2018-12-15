@@ -1,6 +1,6 @@
 # 简介
 
-开发 node 工具库
+针对gitlab api的封装
 
 ## 开发
 
@@ -12,5 +12,5 @@ yarn start
 ## 使用
 
 ```
-import xx from 'library'
+import xx from 'gitlab-api'
 ```

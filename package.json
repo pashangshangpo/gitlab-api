@@ -1,0 +1,35 @@
+{
+  "name": "library",
+  "version": "0.1.0",
+  "main": "dist/library.cjs.js",
+  "module": "dist/library.esm.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "npm run clean && rollup -w -c config/rollup.config.prod.js",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": "pretty-quick"
+  },
+  "pre-commit": [
+    "lint-staged"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/runtime": "^7.1.5",
+    "lint-staged": "^8.1.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.15.2",
+    "pretty-quick": "^1.8.0",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.67.3",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-replace": "^2.1.0"
+  },
+  "dependencies": {}
+}

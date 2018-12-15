@@ -9,7 +9,7 @@ import Request from 'request'
 export default config => {
   config = {
     headers: {},
-    ...config
+    ...config,
   }
 
   return path => {
@@ -20,11 +20,11 @@ export default config => {
           headers: {
             'User-Agent': 'gitlab-api',
             'PRIVATE-TOKEN': config.token,
-            ...config.headers
-          }
-        }, 
+            ...config.headers,
+          },
+        },
         (req, res) => {
-          resolve({req, res})
+          resolve({ req, res })
         }
       )
     })

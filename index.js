@@ -15,6 +15,11 @@ export default (config = {}) => {
         return JSON.parse(ctx.res.body)
       })
     },
+    getRawFile(id, path, branch = 'master') {
+      return request(`projects/${id}/repository/files/${path}/raw?ref=${branch}`).then(ctx => {
+        return ctx.res.body
+      })
+    },
     createFile(id, data) {
       return request(`projects/${id}/repository/commits`, {
         method: 'POST',

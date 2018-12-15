@@ -11,41 +11,40 @@ export default (config = {}) => {
 
   return {
     projects() {
-      return request('projects').then(ctx => {
-        return JSON.parse(ctx.res.body)
+      return request('projects').then(res => {
+        return res.json()
       })
     },
     getTree(id, query = '') {
-      return request(`projects/${id}/repository/tree?${query}`).then(ctx => {
-        return JSON.parse(ctx.res.body)
+      return request(`projects/${id}/repository/tree?${query}`).then(res => {
+        return res.json()
       })
     },
     getCommits(id, query = '') {
-      return request(`projects/${id}/repository/commits?${query}`).then(ctx => {
-        return JSON.parse(ctx.res.body)
+      return request(`projects/${id}/repository/commits?${query}`).then(res => {
+        return res.json()
       })
     },
     getFile(id, path, branch = 'master') {
       return request(
         `projects/${id}/repository/files/${path}?ref=${branch}`
-      ).then(ctx => {
-        return JSON.parse(ctx.res.body)
+      ).then(res => {
+        return res.json()
       })
     },
     getRawFile(id, path, branch = 'master') {
       return request(
         `projects/${id}/repository/files/${path}/raw?ref=${branch}`
-      ).then(ctx => {
-        return ctx.res.body
+      ).then(res => {
+        return res.text()
       })
     },
     createFile(id, data) {
       return request(`projects/${id}/repository/commits`, {
         method: 'POST',
-        json: true,
         body: data,
-      }).then(ctx => {
-        return ctx.res.body
+      }).then(res => {
+        return res.text()
       })
     },
   }

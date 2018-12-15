@@ -16,9 +16,7 @@ export default (config = {}) => {
       })
     },
     getTree(id, query = '') {
-      return request(
-        `projects/${id}/repository/tree?${query}`,
-      ).then(ctx => {
+      return request(`projects/${id}/repository/tree?${query}`).then(ctx => {
         return JSON.parse(ctx.res.body)
       })
     },

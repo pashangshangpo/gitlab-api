@@ -15,5 +15,14 @@ export default (config = {}) => {
         return JSON.parse(ctx.res.body)
       })
     },
+    createFile(id, data) {
+      return request(`projects/${id}/repository/commits`, {
+        method: 'POST',
+        json: true,
+        body: data,
+      }).then(ctx => {
+        return ctx.res.body
+      })
+    },
   }
 }

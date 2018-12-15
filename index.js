@@ -16,7 +16,9 @@ export default (config = {}) => {
       })
     },
     getRawFile(id, path, branch = 'master') {
-      return request(`projects/${id}/repository/files/${path}/raw?ref=${branch}`).then(ctx => {
+      return request(
+        `projects/${id}/repository/files/${path}/raw?ref=${branch}`
+      ).then(ctx => {
         return ctx.res.body
       })
     },

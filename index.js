@@ -15,6 +15,13 @@ export default (config = {}) => {
         return JSON.parse(ctx.res.body)
       })
     },
+    getTree(id, query = '') {
+      return request(
+        `projects/${id}/repository/tree?${query}`,
+      ).then(ctx => {
+        return JSON.parse(ctx.res.body)
+      })
+    },
     getFile(id, path, branch = 'master') {
       return request(
         `projects/${id}/repository/files/${path}?ref=${branch}`

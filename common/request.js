@@ -12,7 +12,7 @@ export default config => {
       headers: {},
       ...options,
     }
-  
+
     let { headers, ...arg } = options
 
     return new Promise(resolve => {
@@ -24,7 +24,7 @@ export default config => {
             'PRIVATE-TOKEN': config.token,
             ...headers,
           },
-          ...arg
+          ...arg,
         },
         (req, res) => {
           resolve({ req, res })

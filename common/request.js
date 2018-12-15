@@ -7,12 +7,14 @@
 import Request from 'request'
 
 export default config => {
-  config = {
-    headers: {},
-    ...config,
-  }
+  return (path, options) => {
+    options = {
+      headers: {},
+      ...options,
+    }
+  
+    let { headers, ...arg } = options
 
-  return path => {
     return new Promise(resolve => {
       Request(
         {
@@ -20,8 +22,9 @@ export default config => {
           headers: {
             'User-Agent': 'gitlab-api',
             'PRIVATE-TOKEN': config.token,
-            ...config.headers,
+            ...headers,
           },
+          ...arg
         },
         (req, res) => {
           resolve({ req, res })

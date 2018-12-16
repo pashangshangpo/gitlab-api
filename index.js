@@ -44,8 +44,8 @@ export default (config = {}) => {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       }).then(res => {
         return res.text()
       })

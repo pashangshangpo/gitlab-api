@@ -47,7 +47,7 @@ export default (config = {}) => {
           'Content-Type': 'application/json',
         },
       }).then(res => {
-        return res.text()
+        return res.json()
       })
     },
   }

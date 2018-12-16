@@ -43,6 +43,9 @@ export default (config = {}) => {
       return request(`projects/${id}/repository/commits`, {
         method: 'POST',
         body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }).then(res => {
         return res.text()
       })

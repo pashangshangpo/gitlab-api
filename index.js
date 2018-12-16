@@ -42,7 +42,7 @@ export default (config = {}) => {
     createFile(id, data) {
       return request(`projects/${id}/repository/commits`, {
         method: 'POST',
-        body: data,
+        body: JSON.stringify(data),
       }).then(res => {
         return res.text()
       })
